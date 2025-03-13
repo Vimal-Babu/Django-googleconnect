@@ -1,0 +1,27 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django secret files
+core/credentials.json
+
+# Database files
+*.sqlite3
+db.sqlite3
+
+# Django migration files
+**/migrations/**
+
+# IDE & OS-specific files
+.vscode/
+*.swp
+.DS_Store
+
+# Log files
+*.log
+
