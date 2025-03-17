@@ -1,6 +1,10 @@
 # Virtual environment
 venv/
 
+# Django secret files
+client_secret.json
+
+
 # Python cache
 __pycache__/
 *.pyc
@@ -25,3 +29,4 @@ db.sqlite3
 # Log files
 *.log
 
+.env

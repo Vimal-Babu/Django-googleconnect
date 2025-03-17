@@ -1,3 +1,14 @@
+from django.urls import path
+from .auth_views import google_auth_start, google_auth_callback
+from .import views
+
+urlpatterns = [
+    path('',views.home,name='home'),
+    path("auth/google/start/", google_auth_start, name="google-auth-start"),
+    path("auth/google/callback/", google_auth_callback, name="google-auth-callback"),
+]
+
+
 """
 URL configuration for core project.
 
@@ -14,11 +25,3 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path,include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include('api.urls')),
-    path('auth/',include('authentication.urls')),
-]

@@ -9,11 +9,36 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
+print("--------SETTING FILE STARTED---------  loaded one 1")
+#dotenv_path = Path(__file__).resolve().parent.parent / ".env"
+#load_dotenv(dotenv_path=dotenv_path)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print("BASE DIR MAN---------------------- ",BASE_DIR)
+print("GOOGLE_REDIRECT_URI:", os.getenv("GOOGLE_REDIRECT_URI"))
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# GOOGLE_CLIENT_SECRET_FILE = os.path.join(BASE_DIR, 'core/credentials/client_secret.json')
+
+GOOGLE_CLIENT_SECRET_FILE = os.getenv("GOOGLE_CLIENT_SECRET_FILE")
+
+print(f"iiiiiiiiiiii--------GOOGLE_CLIENT_SECRET_FILE: {GOOGLE_CLIENT_SECRET_FILE}")
+
+
+GOOGLE_AUTH_REDIRECT_URI = os.getenv("GOOGLE_REDIRECT_URI", "http://127.0.0.1:8000/auth/google/callback/")
+
+# GOOGLE_AUTH_REDIRECT_URI = "http://127.0.0.1:8000/auth/google/callback/"  # Change this if needed
+
+print("google_auth_redirect_urii---------",GOOGLE_AUTH_REDIRECT_URI)
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,6 +48,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b&#nekcmc#7djk0#vha07@1eb&=)mzlf63r=1-g&qy&ieaberd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+print("-------------SETTINGS FILLE END---------------\n\n\n\n\n")
+
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
